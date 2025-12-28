@@ -28,16 +28,23 @@ The Vehicle Signal Service focuses on:
 
 SDVProjects/
 └── vehicle-signal-simulator/
-    ├── src/
-    │   ├── __init__.py
-    │   ├── signals.py
-    │   └── validator.py
-    ├── tests/
-    │   ├── __init__.py
-    │   ├── test_signals.py
-    │   └── test_validator.py
-    ├── requirements.txt
-    └── README.md
+    │   README.md
+    │   requirements.txt
+    │
+    ├───src
+    │   │   can_message.py
+    │   │   can_processor.py
+    │   │   controller.py
+    │   │   signals.py
+    │   │   validator.py
+    │   │   vehicle_state.py
+    │
+    └───tests
+        │   test_can_processor.py
+        │   test_controller.py
+        │   test_signals.py
+        │   test_validator.py
+        │   test_vehicle_state.py
 
 ```
 
@@ -56,3 +63,27 @@ python -m pytest
 
 
 
+
+    │   README.md
+    │   requirements.txt
+    │   
+    ├───.pytest_cache
+    │   │   .gitignore
+    │   │   CACHEDIR.TAG
+    │   │   README.md
+    │
+    ├───src
+    │   │   can_message.py
+    │   │   can_processor.py
+    │   │   controller.py
+    │   │   signals.py
+    │   │   validator.py
+    │   │   vehicle_state.py
+    │
+    └───tests
+        │   test_can_processor.py
+        │   test_controller.py
+        │   test_signals.py
+        │   test_validator.py
+        │   test_vehicle_state.py
+        
