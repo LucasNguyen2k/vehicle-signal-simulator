@@ -38,6 +38,7 @@ SDVProjects/
     │   │   signals.py
     │   │   validator.py
     │   │   vehicle_state.py
+    │   │   state_machine.py
     │
     └───tests
         │   test_can_processor.py
@@ -45,9 +46,27 @@ SDVProjects/
         │   test_signals.py
         │   test_validator.py
         │   test_vehicle_state.py
-
 ```
 
+
+## Vehicle State Machine Diagram
+```
+digraph {
+        OFF [label=OFF]
+        BOOTING [label=BOOTING]
+        IDLE [label=IDLE]
+        DRIVING [label=DRIVING]
+        ERROR [label=ERROR color=red]
+        OFF -> BOOTING [label=power_on]
+        BOOTING -> IDLE [label=boot_complete]
+        BOOTING -> ERROR [label=fault]
+        IDLE -> DRIVING [label=start_drive]
+        IDLE -> ERROR [label=fault]
+        DRIVING -> IDLE [label=stop_drive]
+        DRIVING -> ERROR [label=fault]
+        ERROR -> OFF [label=reset]
+}
+```
 ## Installation
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -60,30 +79,3 @@ None
 ```
 python -m pytest
 ```
-
-
-
-
-    │   README.md
-    │   requirements.txt
-    │   
-    ├───.pytest_cache
-    │   │   .gitignore
-    │   │   CACHEDIR.TAG
-    │   │   README.md
-    │
-    ├───src
-    │   │   can_message.py
-    │   │   can_processor.py
-    │   │   controller.py
-    │   │   signals.py
-    │   │   validator.py
-    │   │   vehicle_state.py
-    │
-    └───tests
-        │   test_can_processor.py
-        │   test_controller.py
-        │   test_signals.py
-        │   test_validator.py
-        │   test_vehicle_state.py
-        

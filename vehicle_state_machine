@@ -1,0 +1,16 @@
+// Vehicle State Machine
+digraph {
+	OFF [label=OFF]
+	BOOTING [label=BOOTING]
+	IDLE [label=IDLE]
+	DRIVING [label=DRIVING]
+	ERROR [label=ERROR color=red]
+	OFF -> BOOTING [label=power_on]
+	BOOTING -> IDLE [label=boot_complete]
+	BOOTING -> ERROR [label=fault]
+	IDLE -> DRIVING [label=start_drive]
+	IDLE -> ERROR [label=fault]
+	DRIVING -> IDLE [label=stop_drive]
+	DRIVING -> ERROR [label=fault]
+	ERROR -> OFF [label=reset]
+}
