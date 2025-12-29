@@ -67,6 +67,22 @@ digraph {
         ERROR -> OFF [label=reset]
 }
 ```
+
+**To visualize:** Copy the above DOT code and paste it into an online Graphviz viewer like https://dreampuf.github.io/GraphvizOnline/
+
+### ASCII Diagram
+```
+OFF ──power_on──► BOOTING ──boot_complete──► IDLE ──start_drive──► DRIVING
+│                   │                        │                      │
+│                   └────fault───────────────┼────fault─────────────┘
+│                                            │
+└────────────────────────────────────────────┼────────────────────────
+                                             │
+                                             ▼
+                                           ERROR
+                                             │
+                                             └────reset────────────► OFF
+```
 ## Installation
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
